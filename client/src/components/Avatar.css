@@ -1,0 +1,17 @@
+/* Avatar wrapper stays inline, but better inline-block */
+.Avatar {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  top: 5px;
+  cursor: pointer;
+}
+
+/* Clean, round avatar */
+.user-img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+}

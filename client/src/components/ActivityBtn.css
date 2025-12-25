@@ -1,0 +1,37 @@
+.activityBtn {
+  text-align: center;
+  padding: 5px;
+  margin-right: 10px;
+  width: 170px;
+  transition: background 0.2s ease;
+  border-radius: 6px;
+}
+
+.activityBtn:hover {
+  background: rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+}
+
+/* Vote count animation */
+.vote {
+  display: inline-block;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.vote.animated {
+  transform: scale(1.18);
+  color: rgb(38, 163, 217);
+}
+
+/* 
+.activityBtn {
+    text-align: center;
+    padding:5;
+    margin-right: 10px;
+    width: 170px;
+}
+
+.activityBtn:hover {
+    background: rgba(21, 5, 5, 0.184);
+
+} */

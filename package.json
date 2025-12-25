@@ -1,0 +1,35 @@
+{
+  "name": "onthefly",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "npm run reset && nodemon --require dotenv/config server/server.js",
+    "reset": "cd server/config && node --require dotenv/config reset.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Abdulwakil1/onthefly.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Abdulwakil1/onthefly/issues"
+  },
+  "homepage": "https://github.com/Abdulwakil1/onthefly#readme",
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/material": "^7.3.5",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "express-session": "^1.18.2",
+    "nodemon": "^3.1.10",
+    "passport": "^0.7.0",
+    "passport-github2": "^0.1.12",
+    "pg": "^8.16.3"
+  }
+}
