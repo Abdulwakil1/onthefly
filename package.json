@@ -5,8 +5,7 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "node --require dotenv/config server/server.js",
-    "reset": "cd server/config && node --require dotenv/config reset.js"
+    "start": "node server/server.js"
   },
   "repository": {
     "type": "git",
