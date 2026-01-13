@@ -149,7 +149,7 @@ const CreateTrip = ({ refreshTrips, api_url, user }) => {
         body: JSON.stringify(post),
       };
 
-      const res = await fetch(`${api_url}/api/trips`, options);
+      const res = await fetch(`${api_url}/trips`, options);
 
       if (!res.ok) throw new Error("Failed to create trip");
 

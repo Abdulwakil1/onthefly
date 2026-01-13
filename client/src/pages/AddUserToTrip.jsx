@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router";
 import { Snackbar, Alert, CircularProgress } from "@mui/material";
 import "./CreateActivity.css";
 
-const AddUserToTrip = ({ api_url }) => {
+const AddUserToTrip = () => {
   const { trip_id } = useParams();
   const navigate = useNavigate();
 
@@ -30,7 +30,7 @@ const AddUserToTrip = ({ api_url }) => {
   useEffect(() => {
     const fetchTravelers = async () => {
       try {
-        const res = await fetch(`${api_url}/api/users-trips/users/${trip_id}`);
+        const res = await fetch(`/api/users-trips/users/${trip_id}`);
         if (!res.ok) throw new Error("Failed to load travelers");
         const data = await res.json();
         setTravelers(data);
@@ -44,7 +44,7 @@ const AddUserToTrip = ({ api_url }) => {
     };
 
     fetchTravelers();
-  }, [api_url, trip_id]);
+  }, [trip_id]);
   // console.log("Travelers:", travelers);
 
   // -------------------------
@@ -85,7 +85,7 @@ const AddUserToTrip = ({ api_url }) => {
     try {
       setLoading(true);
 
-      const res = await fetch(`${api_url}/api/users-trips/create/${trip_id}`, {
+      const res = await fetch(`/api/users-trips/create/${trip_id}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username: normalized }),

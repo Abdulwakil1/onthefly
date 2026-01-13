@@ -19,14 +19,27 @@ const app = express();
 app.use(express.json());
 // app.use(cors());
 
-// --- CORS MIDDLEWARE ---
+const CLIENT_URL =
+  process.env.NODE_ENV === "production"
+    ? "https://your-frontend.onrender.com"
+    : "http://localhost:5173";
+
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: CLIENT_URL,
     methods: "GET,POST,PUT,DELETE,PATCH",
     credentials: true,
   })
 );
+
+// // --- CORS MIDDLEWARE ---
+// app.use(
+//   cors({
+//     origin: "http://localhost:5173",
+//     methods: "GET,POST,PUT,DELETE,PATCH",
+//     credentials: true,
+//   })
+// );
 
 // --- SESSION MIDDLEWARE ---
 app.use(

@@ -6,7 +6,7 @@ import DestinationBtn from "../components/DestinationBtn";
 import { Snackbar, Alert } from "@mui/material";
 import "./TripDetails.css";
 
-const TripDetails = ({ data, api_url }) => {
+const TripDetails = ({ data }) => {
   const { id } = useParams();
 
   const [post, setPost] = useState({
@@ -50,7 +50,7 @@ const TripDetails = ({ data, api_url }) => {
     // Fetch activities
     const fetchActivities = async () => {
       try {
-        const response = await fetch(`${api_url}/api/activities/${id}`);
+        const response = await fetch(`/api/activities/${id}`);
         if (!response.ok) throw new Error("Failed to fetch activities");
 
         const data = await response.json();
@@ -69,7 +69,7 @@ const TripDetails = ({ data, api_url }) => {
     const fetchDestinations = async () => {
       try {
         const response = await fetch(
-          `${api_url}/api/trips_destinations/destinations/${id}`
+          `/api/trips_destinations/destinations/${id}`
         );
         if (!response.ok) throw new Error("Failed to fetch destinations");
 
@@ -87,12 +87,12 @@ const TripDetails = ({ data, api_url }) => {
 
     fetchActivities();
     fetchDestinations();
-  }, [data, id, api_url]);
+  }, [data, id]);
 
   useEffect(() => {
     const fetchTravelers = async () => {
       try {
-        const res = await fetch(`${api_url}/api/users-trips/users/${id}`, {
+        const res = await fetch(`/api/users-trips/users/${id}`, {
           credentials: "include",
         });
 
@@ -108,7 +108,7 @@ const TripDetails = ({ data, api_url }) => {
     };
 
     fetchTravelers();
-  }, [api_url, id]);
+  }, [id]);
 
   return (
     <div className="out">

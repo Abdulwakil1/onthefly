@@ -14,17 +14,18 @@ import { useNavigate } from "react-router";
 
 import Login from "./pages/Login";
 import Avatar from "./components/Avatar";
+import { API_URL } from "./config";
 
 const App = () => {
   const [trips, setTrips] = useState([]);
   const [destinations, setDestinations] = useState([]);
-  const API_URL = "http://localhost:3001";
+  // const API_URL = "http://localhost:3001";
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
   const fetchTrips = async () => {
     try {
-      const response = await fetch(`${API_URL}/api/trips`);
+      const response = await fetch(`${API_URL}/trips`);
       if (!response.ok) throw new Error("Failed to fetch trips");
       const data = await response.json();
       setTrips(data);
@@ -35,7 +36,7 @@ const App = () => {
 
   const fetchDestinations = async () => {
     try {
-      const response = await fetch(`${API_URL}/api/destinations`);
+      const response = await fetch(`${API_URL}/destinations`);
       if (!response.ok) throw new Error("Failed to fetch destinations");
       const data = await response.json();
       setDestinations(data);
@@ -45,7 +46,7 @@ const App = () => {
   };
   const getUser = async () => {
     try {
-      const response = await fetch(`${API_URL}/auth/login/success`, {
+      const response = await fetch(`/auth/login/success`, {
         credentials: "include",
       });
 
@@ -71,7 +72,7 @@ const App = () => {
   // ---- LOGOUT FUNCTION ---- //
   const logout = async () => {
     try {
-      const url = `${API_URL}/auth/logout`;
+      const url = `/auth/logout`;
       const response = await fetch(url, { credentials: "include" });
       const json = await response.json();
 

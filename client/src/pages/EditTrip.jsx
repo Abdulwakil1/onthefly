@@ -117,7 +117,7 @@ const EditTrip = ({ data, refreshTrips, api_url }) => {
     setSubmitting(true);
 
     try {
-      const res = await fetch(`${api_url}/api/trips/${id}`, {
+      const res = await fetch(`${api_url}/trips/${id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(post),
@@ -172,7 +172,7 @@ const EditTrip = ({ data, refreshTrips, api_url }) => {
     setDeleteError("");
 
     try {
-      const res = await fetch(`${api_url}/api/trips/${id}`, {
+      const res = await fetch(`${api_url}/trips/${id}`, {
         method: "DELETE",
       });
       if (!res.ok) throw new Error("Failed to delete trip");
