@@ -2,6 +2,10 @@ import express from "express";
 import passport from "passport";
 
 const router = express.Router();
+const CLIENT_URL =
+  process.env.NODE_ENV === "production"
+    ? "https://client-23t0.onrender.com"
+    : "http://localhost:5173";
 
 // ✅ Login success route
 router.get("/login/success", (req, res) => {
@@ -44,9 +48,8 @@ router.get(
 router.get(
   "/github/callback",
   passport.authenticate("github", {
-    // successRedirect: "/", // redirect here on success
-    successRedirect: "http://localhost:5173/",
-    failureRedirect: "/auth/login/failed", // redirect here on failure
+    successRedirect: CLIENT_URL,
+    failureRedirect: `${CLIENT_URL}/destinations`,
   })
 );
 

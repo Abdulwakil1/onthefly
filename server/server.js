@@ -21,7 +21,7 @@ app.use(express.json());
 
 const CLIENT_URL =
   process.env.NODE_ENV === "production"
-    ? "https://your-frontend.onrender.com"
+    ? "https://client-23t0.onrender.com"
     : "http://localhost:5173";
 
 app.use(
@@ -32,23 +32,15 @@ app.use(
   })
 );
 
-// // --- CORS MIDDLEWARE ---
-// app.use(
-//   cors({
-//     origin: "http://localhost:5173",
-//     methods: "GET,POST,PUT,DELETE,PATCH",
-//     credentials: true,
-//   })
-// );
-
 // --- SESSION MIDDLEWARE ---
 app.use(
   session({
     secret: "codepath",
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     cookie: {
-      secure: false, // must be false for localhost HTTP
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
     },
   })
 );
