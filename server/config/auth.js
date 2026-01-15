@@ -2,20 +2,29 @@ import passport from "passport";
 import { Strategy as GitHubStrategy } from "passport-github2";
 import { pool } from "../config/database.js";
 
-if (!process.env.GITHUB_CLIENT_ID || !process.env.GITHUB_CLIENT_SECRET) {
-  console.error("❌ Missing GitHub OAuth environment variables");
-}
-
 const BACKEND_URL =
   process.env.NODE_ENV === "production"
     ? "https://server-51fn.onrender.com"
     : "http://localhost:3001";
+
+if (
+  process.env.NODE_ENV === "production" &&
+  (!process.env.GITHUB_CLIENT_ID || !process.env.GITHUB_CLIENT_SECRET)
+) {
+  console.error("❌ Missing GitHub OAuth environment variables in production");
+}
 
 const options = {
   clientID: process.env.GITHUB_CLIENT_ID,
   clientSecret: process.env.GITHUB_CLIENT_SECRET,
   callbackURL: `${BACKEND_URL}/auth/github/callback`,
 };
+
+// const options = {
+//   clientID: process.env.GITHUB_CLIENT_ID,
+//   clientSecret: process.env.GITHUB_CLIENT_SECRET,
+//   callbackURL: "http://localhost:3001/auth/github/callback",
+// };
 
 const verify = async (accessToken, refreshToken, profile, done) => {
   try {
