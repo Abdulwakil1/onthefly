@@ -32,6 +32,7 @@ const verify = async (accessToken, refreshToken, profile, done) => {
 
     // Normalize username once
     const username = githubUsername.trim().toLowerCase();
+    // const username = (githubUsername || `github_${githubId}`).toLowerCase();  // preferred normalization for Username fallback
     const avatarUrl = photos?.[0]?.value || "";
 
     // 1️⃣ Look up user by GitHub ID (PRIMARY identity)
