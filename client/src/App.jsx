@@ -44,11 +44,30 @@ const App = () => {
       console.error("Error fetching destinations:", err);
     }
   };
+  // const getUser = async () => {
+  //   try {
+  //     // const response = await fetch(`/auth/login/success`, {
+  //     const response = await fetch(`${AUTH_URL}/login/success`, {
+  //       // const response = await fetch(`${AUTH_URL}/login/success`, {
+  //       // const response = await fetch(`${API_URL}/auth/login/success`, {
+  //       credentials: "include",
+  //     });
+
+  //     if (!response.ok) {
+  //       setUser(null);
+  //       return;
+  //     }
+
+  //     const json = await response.json();
+  //     setUser(json.user || null);
+  //   } catch (err) {
+  //     console.error("Error loading user:", err);
+  //     setUser(null);
+  //   }
+  // };
   const getUser = async () => {
     try {
-      const response = await fetch(`/auth/login/success`, {
-        // const response = await fetch(`${AUTH_URL}/login/success`, {
-        // const response = await fetch(`${API_URL}/auth/login/success`, {
+      const response = await fetch(`${AUTH_URL}/login/success`, {
         credentials: "include",
       });
 
@@ -72,16 +91,28 @@ const App = () => {
   }, []);
 
   // ---- LOGOUT FUNCTION ---- //
+  // const logout = async () => {
+  //   try {
+  //     const url = `/auth/logout`;
+  //     // const url = `${API_URL}/logout`;
+  //     const response = await fetch(url, { credentials: "include" });
+  //     const json = await response.json();
+
+  //     // Clear user on frontend
+  //     setUser(null);
+
+  //     navigate("/", { replace: true });
+  //   } catch (err) {
+  //     console.error("Logout error:", err);
+  //   }
+  // };
   const logout = async () => {
     try {
-      const url = `/auth/logout`;
-      // const url = `${API_URL}/logout`;
-      const response = await fetch(url, { credentials: "include" });
+      const response = await fetch(`${AUTH_URL}/logout`, {
+        credentials: "include",
+      });
       const json = await response.json();
-
-      // Clear user on frontend
       setUser(null);
-
       navigate("/", { replace: true });
     } catch (err) {
       console.error("Logout error:", err);
