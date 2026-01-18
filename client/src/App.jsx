@@ -14,7 +14,8 @@ import { useNavigate } from "react-router";
 
 import Login from "./pages/Login";
 import Avatar from "./components/Avatar";
-import { API_URL } from "./config";
+// import { API_URL } from "./config";
+import { API_URL, AUTH_URL } from "./config";
 
 const App = () => {
   const [trips, setTrips] = useState([]);
