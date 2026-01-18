@@ -46,8 +46,8 @@ const App = () => {
   };
   const getUser = async () => {
     try {
-      const response = await fetch(`/auth/login/success`, {
-        // const response = await fetch(`${AUTH_URL}/login/success`, {
+      // const response = await fetch(`/auth/login/success`, {
+      const response = await fetch(`${AUTH_URL}/login/success`, {
         // const response = await fetch(`${API_URL}/auth/login/success`, {
         credentials: "include",
       });
@@ -74,8 +74,8 @@ const App = () => {
   // ---- LOGOUT FUNCTION ---- //
   const logout = async () => {
     try {
-      const url = `/auth/logout`;
-      // const url = `${API_URL}/auth/logout`;
+      // const url = `/auth/logout`;
+      const url = `${API_URL}/logout`;
       const response = await fetch(url, { credentials: "include" });
       const json = await response.json();
 
