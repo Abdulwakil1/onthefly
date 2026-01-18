@@ -35,16 +35,32 @@ app.use(
 app.set("trust proxy", 1);
 
 // 🔹 Session
+// app.use(
+//   session({
+//     name: "onthefly.sid",
+//     secret: process.env.SESSION_SECRET || "codepath",
+//     resave: false,
+//     saveUninitialized: false,
+//     cookie: {
+//       httpOnly: true,
+//       secure: process.env.NODE_ENV === "production",
+//       sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+//     },
+//   })
+// );
+
 app.use(
   session({
     name: "onthefly.sid",
     secret: process.env.SESSION_SECRET || "codepath",
     resave: false,
     saveUninitialized: false,
+    proxy: true, // 🔥 REQUIRED
     cookie: {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+      secure: true, // REQUIRED for SameSite=None
+      sameSite: "none", // REQUIRED for cross-site OAuth
+      domain: ".onrender.com", // 🔥 CRITICAL FIX
     },
   })
 );
