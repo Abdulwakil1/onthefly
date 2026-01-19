@@ -52,7 +52,7 @@ const TripDetails = ({ data }) => {
     const fetchActivities = async () => {
       try {
         // const response = await fetch(`/api/activities/${id}`);
-        const response = await fetch(`${API_URL}/api/activities/${id}`, {
+        const response = await fetch(`${API_URL}/activities/${id}`, {
           credentials: "include",
         });
 
@@ -77,7 +77,7 @@ const TripDetails = ({ data }) => {
         //   `/api/trips_destinations/destinations/${id}`
         // );
         const response = await fetch(
-          `${API_URL}/api/trips_destinations/destinations/${id}`,
+          `${API_URL}/trips_destinations/destinations/${id}`,
           { credentials: "include" }
         );
         if (!response.ok) throw new Error("Failed to fetch destinations");
@@ -104,7 +104,7 @@ const TripDetails = ({ data }) => {
         // const res = await fetch(`/api/users-trips/users/${id}`, {
         //   credentials: "include",
         // });
-        const res = await fetch(`${API_URL}/api/users-trips/users/${id}`, {
+        const res = await fetch(`${API_URL}/users-trips/users/${id}`, {
           credentials: "include",
         });
         if (!res.ok) {

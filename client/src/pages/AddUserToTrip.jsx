@@ -87,7 +87,7 @@ const AddUserToTrip = () => {
       setLoading(true);
 
       // const res = await fetch(`/api/users-trips/create/${trip_id}`, {
-      const res = await fetch(`${API_URL}/api/users-trips/create/${trip_id}`, {
+      const res = await fetch(`${API_URL}/users-trips/create/${trip_id}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username: normalized }),

@@ -148,7 +148,7 @@ const CreateDestination = ({ refreshDestinations }) => {
 
       // endpoint name: must match backend /api/trips_destinations
       // const res = await fetch("/api/trips_destinations", options);
-      const res = await fetch(`${API_URL}/api/trips_destinations`, options);
+      const res = await fetch(`${API_URL}/trips_destinations`, options);
       if (!res.ok)
         throw new Error(`Associate destination failed (${res.status})`);
       const data = await res.json();
