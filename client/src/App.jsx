@@ -14,13 +14,11 @@ import { useNavigate } from "react-router";
 
 import Login from "./pages/Login";
 import Avatar from "./components/Avatar";
-// import { API_URL } from "./config";
 import { API_URL, AUTH_URL } from "./config";
 
 const App = () => {
   const [trips, setTrips] = useState([]);
   const [destinations, setDestinations] = useState([]);
-  // const API_URL = "http://localhost:3001";
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
@@ -49,8 +47,6 @@ const App = () => {
   //   try {
   //     // const response = await fetch(`/auth/login/success`, {
   //     const response = await fetch(`${AUTH_URL}/login/success`, {
-  //       // const response = await fetch(`${AUTH_URL}/login/success`, {
-  //       // const response = await fetch(`${API_URL}/auth/login/success`, {
   //       credentials: "include",
   //     });
 

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useParams, useNavigate } from "react-router";
 import { Snackbar, Alert, CircularProgress } from "@mui/material";
 import "./CreateActivity.css";
+import { API_URL } from "../config";
 
 const CreateActivity = () => {
   const navigate = useNavigate();
@@ -89,7 +90,12 @@ const CreateActivity = () => {
         body: JSON.stringify(activity),
       };
 
-      const res = await fetch(`/api/activities/${trip_id}`, options);
+      // const res = await fetch(`/api/activities/${trip_id}`, options);
+      const res = await fetch(`${API_URL}/activities/${trip_id}`, {
+        ...options,
+        credentials: "include",
+      });
+
       if (!res.ok) throw new Error("Failed to create activity");
 
       setToast({

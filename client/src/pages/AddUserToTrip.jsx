@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router";
 import { Snackbar, Alert, CircularProgress } from "@mui/material";
 import "./CreateActivity.css";
+import { API_URL } from "../config";
 
 const AddUserToTrip = () => {
   const { trip_id } = useParams();
@@ -85,7 +86,8 @@ const AddUserToTrip = () => {
     try {
       setLoading(true);
 
-      const res = await fetch(`/api/users-trips/create/${trip_id}`, {
+      // const res = await fetch(`/api/users-trips/create/${trip_id}`, {
+      const res = await fetch(`${API_URL}/api/users-trips/create/${trip_id}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username: normalized }),
