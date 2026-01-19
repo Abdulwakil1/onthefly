@@ -20,19 +20,13 @@ const options = {
   callbackURL: `${BACKEND_URL}/auth/github/callback`,
 };
 
-// const options = {
-//   clientID: process.env.GITHUB_CLIENT_ID,
-//   clientSecret: process.env.GITHUB_CLIENT_SECRET,
-//   callbackURL: "http://localhost:3001/auth/github/callback",
-// };
-
 const verify = async (accessToken, refreshToken, profile, done) => {
   try {
     const { id: githubId, username: githubUsername, photos } = profile;
 
     // Normalize username once
-    const username = githubUsername.trim().toLowerCase();
-    // const username = (githubUsername || `github_${githubId}`).toLowerCase();  // preferred normalization for Username fallback
+    // const username = githubUsername.trim().toLowerCase();
+    const username = (githubUsername || `github_${githubId}`).toLowerCase(); // preferred normalization for Username fallback
     const avatarUrl = photos?.[0]?.value || "";
 
     // 1️⃣ Look up user by GitHub ID (PRIMARY identity)

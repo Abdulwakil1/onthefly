@@ -45,15 +45,6 @@ router.get(
 );
 
 // ✅ GitHub callback route
-// router.get(
-//   "/github/callback",
-//   passport.authenticate("github", {
-//     successRedirect: CLIENT_URL,
-//     failureRedirect: `${CLIENT_URL}/destinations`,
-//   })
-// );
-
-// ✅ GitHub callback route
 router.get(
   "/github/callback",
   passport.authenticate("github", {

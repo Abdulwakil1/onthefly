@@ -31,7 +31,6 @@ const AddUserToTrip = () => {
   useEffect(() => {
     const fetchTravelers = async () => {
       try {
-        // const res = await fetch(`/users-trips/users/${trip_id}`);
         const res = await fetch(`${API_URL}/users-trips/users/${trip_id}`, {
           credentials: "include",
         });
@@ -89,7 +88,6 @@ const AddUserToTrip = () => {
     try {
       setLoading(true);
 
-      // const res = await fetch(`/api/users-trips/create/${trip_id}`, {
       const res = await fetch(`${API_URL}/users-trips/create/${trip_id}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
