@@ -31,7 +31,7 @@ const AddUserToTrip = () => {
   useEffect(() => {
     const fetchTravelers = async () => {
       try {
-        const res = await fetch(`/api/users-trips/users/${trip_id}`);
+        const res = await fetch(`/users-trips/users/${trip_id}`);
         if (!res.ok) throw new Error("Failed to load travelers");
         const data = await res.json();
         setTravelers(data);
