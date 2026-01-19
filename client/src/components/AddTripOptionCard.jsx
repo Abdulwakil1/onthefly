@@ -1,5 +1,7 @@
 import { useParams, useNavigate } from "react-router";
 import "./Card.css";
+import { API_URL } from "../config";
+
 const AddTripOptionCard = (props) => {
   const { id, setToast } = props;
   const navigate = useNavigate();
@@ -16,7 +18,8 @@ const AddTripOptionCard = (props) => {
         }),
       };
 
-      const response = await fetch("/api/trips_destinations", options);
+      // const response = await fetch("/api/trips_destinations", options);
+      const response = await fetch(`${API_URL}/trips_destinations`, options);
 
       if (!response.ok) {
         const errorData = await response.json();

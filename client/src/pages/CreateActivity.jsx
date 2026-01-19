@@ -90,7 +90,6 @@ const CreateActivity = () => {
         body: JSON.stringify(activity),
       };
 
-      // const res = await fetch(`/api/activities/${trip_id}`, options);
       const res = await fetch(`${API_URL}/activities/${trip_id}`, {
         ...options,
         credentials: "include",
