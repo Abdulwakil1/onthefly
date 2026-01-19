@@ -111,7 +111,7 @@ const CreateDestination = ({ refreshDestinations }) => {
       };
 
       // const res = await fetch("/api/destinations", options);
-      const res = await fetch(`${API_URL}/api/destinations`, options);
+      const res = await fetch(`${API_URL}/destinations`, options);
       if (!res.ok) throw new Error(`Add destination failed (${res.status})`);
       const data = await res.json();
 
